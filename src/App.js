@@ -1,23 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import StockPriceExplorer
+ from './StockPriceExplorer';
+const TEST_DATE = ["1/17/2014", "1/21/2014", "1/22/2014"]
+const TEST_PRICES = { "AAPL": [19.31, 19.61, 19.7], "MSFT": [36.38, null, 35.93] }
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StockPriceExplorer dates={TEST_DATE} prices={TEST_PRICES}/>
     </div>
   );
 }
