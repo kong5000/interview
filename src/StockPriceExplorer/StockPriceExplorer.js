@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import StockTable from '../StockTable/StockTable';
 import Checkbox from '../LabeledCheckbox/CheckBox'
-
 import './StockPriceExplorer.css'
-const TEST_DATE = ["1/17/2014", "1/21/2014", "1/22/2014"]
-const TEST_PRICES = { "AAPL": [19.31, 19.61, 19.7], "MSFT": [36.38, null, 35.93] }
 
 const StockPriceExplorer = ({ dates, prices }) => {
     const [stocksToDisplay, setStocksToDisplay] = useState(new Set())
 
     const updateStocksToDisplay = (stock, add) => {
-        {Array.from(stocksToDisplay).map(val => {
-            return console.log(`HELLO ${val}`)
-        })}
+        // Sets are not immutable, new Set has to be made or state will not be updated
         if(add){
             setStocksToDisplay(prev => new Set(prev.add(stock)))
         }else{
@@ -25,14 +20,14 @@ const StockPriceExplorer = ({ dates, prices }) => {
             <h3>Stock Data</h3>
             <div className='column-container'>
                 <div className='left-column'>
-                    {Object.keys(TEST_PRICES).map(name => {
+                    {Object.keys(prices).map(name => {
                         return <div>
                             <Checkbox updateStocksToDisplay={updateStocksToDisplay} name={name}/>
                         </div>
                     })}
                 </div>
                 <div className='right-column'>
-                    <StockTable prices={TEST_PRICES} dates={TEST_DATE} activeStocks={stocksToDisplay} />
+                    <StockTable prices={prices} dates={dates} activeStocks={stocksToDisplay} />
                 </div>
             </div>
         </div>

@@ -9,8 +9,10 @@
 .column-container{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .left-column{
     margin: 20px;
+    margin-top: 50px;
 }
