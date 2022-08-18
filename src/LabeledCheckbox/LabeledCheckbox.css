@@ -1,0 +1,12 @@
+.labeled-checkbox{
+    display: flex;
+    align-items: center;
+}
+.selected {
+    color: red;
+    font-weight: bolder;
+}
+
+.unselected {
+    color: black;
+}

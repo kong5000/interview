@@ -1,4 +1,5 @@
 import React from 'react';
+import './StockTable.css'
 
 const StockTable = ({ dates, prices, activeStocks }) => {
     return (
@@ -11,11 +12,11 @@ const StockTable = ({ dates, prices, activeStocks }) => {
                     </tr>
                     {dates.map((date, index) => {
                         return (
-                            <tr key={date}>
-                                {activeStocks.size > 0 && Array.from(activeStocks).length &&<td className="date">{date}</td>}
+                            <tr key={date} className='data-row'>
+                                {activeStocks.size > 0 && Array.from(activeStocks).length &&<td className="data-cell date">{date}</td>}
                                 {Object.keys(prices).map(key => {
                                     if (activeStocks.has(key)) {
-                                        return <td className="date">{prices[key][index]}</td>
+                                        return <td className="data-cell">{prices[key][index]}</td>
                                     }
                                 }
                                 )}

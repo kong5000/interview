@@ -1,0 +1,16 @@
+.stock-price-explorer{
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.column-container{
+    display: flex;
+    justify-content: center;
+}
+
+.left-column{
+    margin: 20px;
+}

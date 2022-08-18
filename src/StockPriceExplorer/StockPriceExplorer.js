@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import StockTable from './StockTable';
-import Checkbox from './CheckBox'
+import StockTable from '../StockTable/StockTable';
+import Checkbox from '../LabeledCheckbox/CheckBox'
+
+import './StockPriceExplorer.css'
 const TEST_DATE = ["1/17/2014", "1/21/2014", "1/22/2014"]
 const TEST_PRICES = { "AAPL": [19.31, 19.61, 19.7], "MSFT": [36.38, null, 35.93] }
 
@@ -19,20 +21,18 @@ const StockPriceExplorer = ({ dates, prices }) => {
     }
 
     return (
-        <div>
-            <div>Stock Data</div>
+        <div className='stock-price-explorer'>
+            <h3>Stock Data</h3>
             <div className='column-container'>
                 <div className='left-column'>
                     {Object.keys(TEST_PRICES).map(name => {
                         return <div>
                             <Checkbox updateStocksToDisplay={updateStocksToDisplay} name={name}/>
-                            {name}
                         </div>
                     })}
                 </div>
                 <div className='right-column'>
                     <StockTable prices={TEST_PRICES} dates={TEST_DATE} activeStocks={stocksToDisplay} />
-
                 </div>
             </div>
         </div>
