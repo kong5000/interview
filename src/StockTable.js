@@ -6,13 +6,13 @@ const StockTable = ({ dates, prices, activeStocks }) => {
             <table className="stock-table">
                 <tbody>
                     <tr id="table-header">
-                        <th className="info-header">Date</th>
-                        {activeStocks && Array.from(activeStocks).sort().map(key => <th className="info-header">{key}</th>)}
+                        {activeStocks.size > 0 && Array.from(activeStocks).length && <th className="info-header">Date</th>}
+                        {Array.from(activeStocks).sort().map(key => <th className="info-header">{key}</th>)}
                     </tr>
                     {dates.map((date, index) => {
                         return (
                             <tr key={date}>
-                                <td className="date">{date}</td>
+                                {activeStocks.size > 0 && Array.from(activeStocks).length &&<td className="date">{date}</td>}
                                 {Object.keys(prices).map(key => {
                                     if (activeStocks.has(key)) {
                                         return <td className="date">{prices[key][index]}</td>
